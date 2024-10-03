@@ -1834,7 +1834,7 @@ Size (bytes)\n\
 
     /*set up the data socket                        */
     send_socket = create_data_socket(local_res);
-
+    
     if (send_socket == INVALID_SOCKET){
       perror("netperf: send_tcp_stream: tcp stream data socket");
       exit(1);

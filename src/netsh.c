@@ -842,6 +842,12 @@ scan_cmd_line(int argc, char *argv[])
 	 to worry about compares on things like substrings */
       strncpy(test_name,optarg,sizeof(test_name)-1);
       convert_to_upper(test_name);
+      extern int custom_flag;
+      if (strcmp(test_name, "CUSTOM_TCP_STREAM") == 0) {
+          custom_flag = 1;
+          strncpy(test_name, "TCP_STREAM", sizeof(test_name)-1);
+    }
+      if ()
       break;
     case 'T':
       /* We want to set the processor on which netserver or netperf
