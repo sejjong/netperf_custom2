@@ -456,14 +456,14 @@ static int client_port_max = 65535;
 
  /* different options for the sockets				*/
 
-int
-  loc_nodelay,		/* don't/do use NODELAY	locally		*/
-  rem_nodelay,		/* don't/do use NODELAY remotely	*/
-  loc_sndavoid,		/* avoid send copies locally		*/
-  loc_rcvavoid,		/* avoid recv copies locally		*/
-  rem_sndavoid,		/* avoid send copies remotely		*/
-  rem_rcvavoid; 	/* avoid recv_copies remotely		*/
-
+/*int
+  loc_nodelay,	
+  rem_nodelay,	
+  loc_sndavoid,	
+  loc_rcvavoid,	
+  rem_sndavoid,	
+  rem_rcvavoid; 
+*/
 extern int
   loc_tcpcork,
   rem_tcpcork,

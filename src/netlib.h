@@ -740,3 +740,10 @@ extern HANDLE WinTimer;
 #ifdef USE_PERFSTAT
 # include <libperfstat.h>
 #endif
+
+extern int loc_nodelay;
+extern int rem_nodelay;
+extern int loc_sndavoid;
+extern int loc_rcvavoid;
+extern int rem_sndavoid;
+extern int rem_rcvavoid;
