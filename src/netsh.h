@@ -213,4 +213,4 @@ extern int
 
 extern int parse_ipqos(const char *cp);
 extern const char * iptos2str(int iptos);
-
+extern int custom_flag;

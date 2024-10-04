@@ -105,7 +105,6 @@ char	netperf_id[]="\
  /* this file contains the main for the netperf program. all the other
     routines can be found in the file netsh.c */
 
-int custom_flag = 0;
 
 int _cdecl
 main(int argc, char *argv[])

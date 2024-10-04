@@ -98,7 +98,7 @@ extern	int	getopt(int , char **, char *) ;
 /* some names and such */
 char *program;		/* program invocation name */
 char *command_line;     /* a copy of the entire command line */
-
+int custom_flag = 0;
 /* stuff to say where this test is going */
 char
   host_name[HOSTNAMESIZE] = "",	      /* remote host name or ip addr */
@@ -842,10 +842,14 @@ scan_cmd_line(int argc, char *argv[])
 	 to worry about compares on things like substrings */
       strncpy(test_name,optarg,sizeof(test_name)-1);
       convert_to_upper(test_name);
-      extern int custom_flag;
+
       if (strcmp(test_name, "CUSTOM_TCP_STREAM") == 0) {
           custom_flag = 1;
           strncpy(test_name, "TCP_STREAM", sizeof(test_name)-1);
+      }
+      else 
+      {
+        custom_flag = 0;
       }
       break;
     case 'T':

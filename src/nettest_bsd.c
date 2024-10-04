@@ -915,7 +915,6 @@ complete_addrinfos(struct addrinfo **remote,struct addrinfo **local, char remote
     }
   }
 
-  extern int custom_flag;
   if (custom_flag)
   {
     *local = complete_addrinfo("what to put here?",
