@@ -915,26 +915,14 @@ complete_addrinfos(struct addrinfo **remote,struct addrinfo **local, char remote
     }
   }
 
-  if (custom_flag)
-  {
-    *local = complete_addrinfo("what to put here?",
-			     local_data_address,
-			     local_data_port,
-			     local_data_family,
-			     CUSTOM_SOCK_STREAM,
-			     protocol,
-			     flags|AI_PASSIVE);
-  }
-  else
-  {
-    *local = complete_addrinfo("what to put here?",
-            local_data_address,
-            local_data_port,
-            local_data_family,
-            type,
-            protocol,
-            flags|AI_PASSIVE);
-  }
+  *local = complete_addrinfo("what to put here?",
+          local_data_address,
+          local_data_port,
+          local_data_family,
+          type,
+          protocol,
+          flags|AI_PASSIVE);
+  
   /* OK, at this point, if remote_data_address is NULL, we know that
      we used the value of remote_host (the control connection) for the
      remote, which means we can/should set remote_data_address to
@@ -1508,7 +1496,12 @@ create_data_socket(struct addrinfo *res)
   if (local_socket_tos > 0)
     local_socket_tos = set_socket_tos(temp_socket,res->ai_family, local_socket_tos);
 #endif
-
+  
+  int custom_flag_value = custom_flag;
+  if (setsockopt(temp_socket, SOL_SOCKET, 12345, &custom_flag_value, sizeof(custom_flag_value)) < 0)
+  {
+    exit(1);
+  }
   return temp_socket;
 }
 
